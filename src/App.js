@@ -48,6 +48,7 @@ function FlashCards() {
 
   function handleReveal(flashCard) {
     setReveal(flashCard);
+    if (flashCard.id === reveal?.id) setReveal(null);
   }
 
   function renderedFlashCars() {
