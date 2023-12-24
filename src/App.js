@@ -44,7 +44,7 @@ const questions = [
 ];
 
 function FlashCards() {
-  const [reveal, setReveal] = useState("");
+  const [reveal, setReveal] = useState(null);
 
   function handleReveal(flashCard) {
     setReveal(flashCard);
@@ -52,7 +52,15 @@ function FlashCards() {
 
   function renderedFlashCars() {
     return questions.map((flashCard) => {
-      return <div key={flashCard.id}>{flashCard.question}</div>;
+      return (
+        <div
+          key={flashCard.id}
+          className={`${flashCard.id === reveal?.id && "selected"}`}
+          onClick={() => handleReveal(flashCard)}
+        >
+          {flashCard.id === reveal?.id ? flashCard.question : flashCard.answer}
+        </div>
+      );
     });
   }
 
