@@ -58,7 +58,7 @@ function FlashCards() {
           className={`${flashCard.id === reveal?.id && "selected"}`}
           onClick={() => handleReveal(flashCard)}
         >
-          {flashCard.id === reveal?.id ? flashCard.question : flashCard.answer}
+          {flashCard.id !== reveal?.id ? flashCard.question : flashCard.answer}
         </div>
       );
     });
