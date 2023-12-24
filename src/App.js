@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./styles.css";
 
 export default function App() {
@@ -43,5 +44,17 @@ const questions = [
 ];
 
 function FlashCards() {
-  return <div>TODO</div>;
+  const [reveal, setReveal] = useState("");
+
+  function handleReveal(flashCard) {
+    setReveal(flashCard);
+  }
+
+  function renderedFlashCars() {
+    return questions.map((flashCard) => {
+      return <div key={flashCard.id}>{flashCard.question}</div>;
+    });
+  }
+
+  return <div className="flashcards">{renderedFlashCars()}</div>;
 }
